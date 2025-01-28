@@ -6,7 +6,6 @@ class project extends HTMLElement{
 
     connectedCallback() {
         const project = JSON.parse(this.getAttribute('data-project'));
-        const index = this.getAttribute('data-index')
 
         this.shadowRoot.innerHTML = `
         <style>
@@ -82,9 +81,9 @@ class Projects {
     setupSearchFilter() {
         this.searchInput.addEventListener("input", (e) => {
             const filter = e.target.value.toLowerCase();
-            document.querySelectorAll(".project").forEach(project => {
-                const name = project.querySelector("h2").innerText.toLowerCase();
-                project.style.display = name.includes(filter) ? "" : "none";
+            document.querySelectorAll("project-card").forEach(p => {
+                const name = JSON.parse(p.dataset.project)["name"].toLowerCase();
+                p.style.display = name.includes(filter) ? "" : "none";
             });
         });
     }
