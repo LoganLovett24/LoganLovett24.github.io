@@ -7,34 +7,44 @@ class project extends HTMLElement{
     connectedCallback() {
         const project = JSON.parse(this.getAttribute('data-project'));
 
-        this.shadowRoot.innerHTML = `
-        <style>
-        #project {
-            border-style: solid;
-            border-radius: 2px;
-            overflow: hidden;
-            transition: all 0.5s ease;
-            padding-bottom:30px;
-        }
-        .dark-mode {
-            color: #ffffff;
-        }
-        #project img {
-            height: 15rem;
-            width: auto;
-            vertical-align: middle;
-        }
-        #project h2 {
-            text-decoration: underline;
-            font-style: italic;
-        }
-        </style>
-        <div id="project">
-            <h2>${project.name}</h2>
-            <img src="${project.img}">
-            <br>
-        </div>
-        `
+        const style = document.createElement('style');
+        style.textContent = `
+            #project {
+                border-style: solid;
+                border-radius: 2px;
+                overflow: hidden;
+                transition: all 0.5s ease;
+                padding-bottom: 30px;
+            }
+            .dark-mode {
+                color: #ffffff;
+            }
+            #project img {
+                height: 15rem;
+                width: auto;
+                vertical-align: middle;
+            }
+            #project h2 {
+                text-decoration: underline;
+                font-style: italic;
+            }
+        `;
+
+        const projectContainer = document.createElement('div');
+        projectContainer.id = 'project';
+        
+        const projectName = document.createElement('h2');
+        projectName.textContent = project.name;
+        projectContainer.appendChild(projectName);
+        
+        const projectImg = document.createElement('img');
+        projectImg.src = project.img;
+        projectContainer.appendChild(projectImg);
+        
+        projectContainer.appendChild(document.createElement('br'));
+
+        this.shadowRoot.appendChild(style);
+        this.shadowRoot.appendChild(projectContainer);
 
         this.shadowRoot.getElementById('project').addEventListener('click', () => {
             const fHead = document.getElementById('focused-heading');

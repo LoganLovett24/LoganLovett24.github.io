@@ -44,64 +44,99 @@ let animals = {
     ]
 }
 
-class animal extends HTMLElement{
+class AnimalCard extends HTMLElement {
     constructor() {
-        super()
-        this.attachShadow({mode:"open"});
+        super();
+        this.attachShadow({ mode: 'open' });
     }
 
     connectedCallback() {
         const animal = JSON.parse(this.getAttribute('data-animal'));
-        const index = this.getAttribute('data-index')
+        const index = this.getAttribute('data-index');
 
-        this.shadowRoot.innerHTML = `
-        <style>
-        .animal{
-            width:900px;
-            padding-bottom:15px;
-            border-bottom:1px solid black;
-            border-top:1px solid black;
-        }
-        .animal h1, .animal h2, .animal h3, .animal p {
-            margin: 0;
-            padding: 0;
-        }
-        .Male{
-            background-color:rgb(187, 222, 255);
-        }
-        .Female {
-            background-color:pink;
-        }
-        </style>
-        <div class="animal ${animal.sex}">
-            <h1>${animal.name}</h1>
-            <h2>${animal.sex} ${animal.species}</h2>
-            <h3>${animal.age} years old</h3>
-            <p>${animal.pregnant ? "Is pregnant" : "Is not pregnant"}</p>
-            <div class="buttons">
-                <button id="preg">Make Pregnant</button>
-                <button id="birth">Give Birth</button>
-                <br>
-                <button id="edit">Edit Animal</button>
-                <button id="remove">Remove Animal</button>
-            </div>
-        </div>
-        `
+        const style = document.createElement('style');
+        style.textContent = `
+            .animal {
+                width: 900px;
+                padding-bottom: 15px;
+                border-bottom: 1px solid black;
+                border-top: 1px solid black;
+            }
+            .animal h1, .animal h2, .animal h3, .animal p {
+                margin: 0;
+                padding: 0;
+            }
+            .Male {
+                background-color: rgb(187, 222, 255);
+            }
+            .Female {
+                background-color: pink;
+            }
+        `;
 
-        this.shadowRoot.getElementById('preg').addEventListener('click', () => makePregnant(animals.animals[index]));
-        this.shadowRoot.getElementById('birth').addEventListener('click', () => giveBirth(animals.animals[index]));
-        this.shadowRoot.getElementById('edit').addEventListener('click', () => {
+        const animalContainer = document.createElement('div');
+        animalContainer.className = `animal ${animal.sex}`;
+
+        const animalName = document.createElement('h1');
+        animalName.textContent = animal.name;
+        animalContainer.appendChild(animalName);
+
+        const animalDetails = document.createElement('h2');
+        animalDetails.textContent = `${animal.sex} ${animal.species}`;
+        animalContainer.appendChild(animalDetails);
+
+        const animalAge = document.createElement('h3');
+        animalAge.textContent = `${animal.age} years old`;
+        animalContainer.appendChild(animalAge);
+
+        const animalPregnancy = document.createElement('p');
+        animalPregnancy.textContent = animal.pregnant ? "Is pregnant" : "Is not pregnant";
+        animalContainer.appendChild(animalPregnancy);
+
+        const buttonsContainer = document.createElement('div');
+        buttonsContainer.className = 'buttons';
+
+        const makePregnantButton = document.createElement('button');
+        makePregnantButton.id = 'preg';
+        makePregnantButton.textContent = 'Make Pregnant';
+        makePregnantButton.addEventListener('click', () => makePregnant(animals.animals[index]));
+        buttonsContainer.appendChild(makePregnantButton);
+
+        const giveBirthButton = document.createElement('button');
+        giveBirthButton.id = 'birth';
+        giveBirthButton.textContent = 'Give Birth';
+        giveBirthButton.addEventListener('click', () => giveBirth(animals.animals[index]));
+        buttonsContainer.appendChild(giveBirthButton);
+
+        buttonsContainer.appendChild(document.createElement('br'));
+
+        const editAnimalButton = document.createElement('button');
+        editAnimalButton.id = 'edit';
+        editAnimalButton.textContent = 'Edit Animal';
+        editAnimalButton.addEventListener('click', () => {
             editing = animals.animals[index];
             prepForm(animals.animals[index]);
             switchDisplay();
         });
-        this.shadowRoot.getElementById('remove').addEventListener('click', () => {
+        buttonsContainer.appendChild(editAnimalButton);
+
+        const removeAnimalButton = document.createElement('button');
+        removeAnimalButton.id = 'remove';
+        removeAnimalButton.textContent = 'Remove Animal';
+        removeAnimalButton.addEventListener('click', () => {
             removeAnimal(animals.animals[index]);
             loadList();
-        })
+        });
+        buttonsContainer.appendChild(removeAnimalButton);
+
+        animalContainer.appendChild(buttonsContainer);
+
+        this.shadowRoot.appendChild(style);
+        this.shadowRoot.appendChild(animalContainer);
     }
 }
-customElements.define("animal-card", animal)
+customElements.define("animal-card", AnimalCard);
+
 
 function updateCount(){
     const count = document.getElementById("count");
