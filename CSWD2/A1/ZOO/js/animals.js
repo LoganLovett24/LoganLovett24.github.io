@@ -44,7 +44,7 @@ let animals = {
     ]
 }
 
-class AnimalCard extends HTMLElement {
+class animal extends HTMLElement {
     constructor() {
         super();
         this.attachShadow({ mode: 'open' });
@@ -135,7 +135,7 @@ class AnimalCard extends HTMLElement {
         this.shadowRoot.appendChild(animalContainer);
     }
 }
-customElements.define("animal-card", AnimalCard);
+customElements.define("animal-card", animal);
 
 
 function updateCount(){
