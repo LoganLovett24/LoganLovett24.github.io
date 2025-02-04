@@ -1,0 +1,184 @@
+html {
+    font-size:10px;
+    box-sizing:border-box;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing:inherit;
+}
+
+body {
+    margin:0;
+    padding:0;
+    font-family:sans-serif;
+    background-color:rgb(241, 175, 113);
+    display:flex;
+    min-height:100vh;
+    align-items:center;
+
+    background-image: radial-gradient(
+        circle at 100% 150%,
+        rgb(241, 175, 113) 24%,
+        rgb(221, 152, 87) 25%,
+        rgb(221, 152, 87) 28%,
+        rgb(241, 175, 113) 29%,
+        rgb(241, 175, 113) 36%,
+        rgb(221, 152, 87) 36%,
+        rgb(221, 152, 87) 40%,
+        transparent 40%,
+        transparent
+    ),
+    radial-gradient(
+        circle at 0% 150%,
+        rgb(241, 175, 113) 24%,
+        rgb(221, 152, 87) 25%,
+        rgb(221, 152, 87) 28%,
+        rgb(241, 175, 113) 29%,
+        rgb(241, 175, 113) 36%,
+        rgb(221, 152, 87) 36%,
+        rgb(221, 152, 87) 40%,
+        transparent 40%,
+        transparent
+    ),
+    radial-gradient(
+        circle at 50% 100%,
+        rgb(241, 175, 113) 10%,
+        rgb(221, 152, 87) 11%,
+        rgb(221, 152, 87) 23%,
+        rgb(241, 175, 113) 24%,
+        rgb(241, 175, 113) 30%,
+        rgb(221, 152, 87) 31%,
+        rgb(221, 152, 87) 43%,
+        rgb(241, 175, 113) 44%,
+        rgb(241, 175, 113) 50%,
+        rgb(221, 152, 87) 51%,
+        rgb(221, 152, 87) 63%,
+        rgb(241, 175, 113) 64%,
+        rgb(241, 175, 113) 71%,
+        transparent 71%,
+        transparent
+    ),
+    radial-gradient(
+        circle at 100% 50%,
+        rgb(241, 175, 113) 5%,
+        rgb(221, 152, 87) 6%,
+        rgb(221, 152, 87) 15%,
+        rgb(241, 175, 113) 16%,
+        rgb(241, 175, 113) 20%,
+        rgb(221, 152, 87) 21%,
+        rgb(221, 152, 87) 30%,
+        rgb(241, 175, 113) 31%,
+        rgb(241, 175, 113) 35%,
+        rgb(221, 152, 87) 36%,
+        rgb(221, 152, 87) 45%,
+        rgb(241, 175, 113) 46%,
+        rgb(241, 175, 113) 49%,
+        transparent 50%,
+        transparent
+    ),
+    radial-gradient(
+        circle at 0% 50%,
+        rgb(241, 175, 113) 5%,
+        rgb(221, 152, 87) 6%,
+        rgb(221, 152, 87) 15%,
+        rgb(241, 175, 113) 16%,
+        rgb(241, 175, 113) 20%,
+        rgb(221, 152, 87) 21%,
+        rgb(221, 152, 87) 30%,
+        rgb(241, 175, 113) 31%,
+        rgb(241, 175, 113) 35%,
+        rgb(221, 152, 87) 36%,
+        rgb(221, 152, 87) 45%,
+        rgb(241, 175, 113) 46%,
+        rgb(241, 175, 113) 49%,
+        transparent 50%,
+        transparent
+    );
+
+    background-size:100px 50px;
+}
+
+
+.voiceinator {
+    display:flex;
+    flex-direction:row;
+    flex-wrap:wrap;
+    justify-content:flex-start;
+    align-items:flex-start;
+    padding:2rem;
+    width:50rem;
+    margin:0;
+    border-radius:1rem;
+    position:relative;
+    background:white;
+    overflow:hidden;
+    z-index:1;
+    box-shadow:0 0 5px 5px rgba(0,0,0,0.1);
+}
+
+h1{
+    width:calc(100% + 4rem);
+    margin:-2rem 0 2rem -2rem;
+    padding:0.5rem;
+    background:orange;
+    border-bottom:5px solid rgb(218, 146, 12);
+    text-align:center;
+    font-size:5rem;
+    font-weight:100;
+    font-family:cursive;
+    text-shadow:3px 3px 0 rgb(218, 146, 12);
+}
+
+.voiceinator input,
+.voiceinator button,
+.voiceinator select,
+.voiceinator textarea,
+.voiceinator label {
+    width:100%;
+    flex:1;
+    flex-grow:0;
+    flex-shrink:0;
+    flex-basis:100%;
+    align-self:flex-start;
+    margin:10px 0;
+    padding:10px;
+    border:0;
+    font-size:2rem;
+    background:#f7f7f7;
+    outline:0;
+}
+
+.voiceinator button {
+    flex:1;
+    align-self:flex-start;
+    background:orange;
+    width:49%;
+    float:left;
+    font-family:cursive;
+    border-bottom:5px solid rgb(218, 146, 12);
+    cursor:pointer;
+    position:relative;
+}
+
+.voiceinator span{
+    flex-grow:0;
+    flex-shrink:0;
+    flex-basis:100%;
+    margin-top:-2%;
+    padding:1%;
+    text-transform:captialize;
+}
+
+.voiceinator textarea{
+    height:20rem;
+}
+
+.voiceinator button:active {
+    top:2px;
+}
+
+.voiceinator button:nth-of-type(1){
+    margin-right:2%;
+}
