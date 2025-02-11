@@ -1,0 +1,176 @@
+/* Common content */
+body {
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+    font-weight: 300;
+    font-size:20px;
+    min-height: 100vh;
+    background-color:antiquewhite;
+    overflow:hidden;
+}
+
+#navbar {
+    position:fixed;
+    width:100%;
+    height:48px;
+    top:0;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:10;
+    background-color:rgb(236, 181, 135);
+}
+
+#navbar nav .page-link {
+    text-decoration:none;
+    margin-right:10px;
+    color:#000;
+}
+
+footer {
+    position:fixed;
+    width:100%;
+    background-color:rgb(236, 181, 135);
+    bottom:0;
+    height:26px;
+    box-sizing: border-box;
+}
+
+footer p {
+    margin: 0;
+    padding: 0;
+    line-height: 24px;
+}
+
+/* Guests */
+#guests-wrapping{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+}
+
+#guests{
+    text-align:center;
+}
+
+#controls{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    margin: 10px 0;
+    gap: 10px;
+}
+
+#guest-count{
+    background:#fff;
+    border-style:solid;
+    border-radius:15px;
+    border-width:3px;
+    border-color:#292929;
+    flex-grow:1;
+    min-width:64px;
+}
+
+#controls button{
+    background:none;
+    border:0;
+    font-style:italic;
+    cursor:pointer;
+    width:60px;
+}
+
+.explain{
+    font-style:italic;
+}
+
+.m1{
+    font-size:48px;
+    margin-right:10px;
+}
+
+.m2{
+    font-size:32px;
+}
+
+.m3{
+    font-size:24px;
+}
+
+.max {
+    color:red;
+}
+
+/* Animals */
+#animals-wrapping{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    margin-top:58px;
+}
+
+#form-wrapping{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+}
+
+#animals{
+    text-align:center;
+    margin-top:auto;
+    margin-bottom:auto;
+    max-height:75vh;
+    overflow:auto;
+}
+
+#top { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    width: 100%; 
+}
+
+#count {
+    font-style:italic;
+}
+
+#form-buttons{
+    text-align:center;
+}
+
+#animal-form{
+    width:275px;
+    background-color:rgb(236, 181, 135);
+    padding:15px;
+}
+
+.form-group{
+    width:100%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+#animal-form label{
+    flex:1;
+    text-align:left;
+}
+
+#add {
+    width:92px;
+}
+
+#search{
+    width:500px;
+}
+
+#animal-form input, #animal-form select, #animal-form button{
+    flex: 2;
+    text-align:right;
+}
+
+/* Other */
+.hidden {
+    display:none !important;
+}
