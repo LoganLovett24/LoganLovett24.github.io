@@ -32,7 +32,7 @@ const displayTimeLeft = (diff) => {
 const displayEndTime = () => {
     const date = new Date(then.getTime());
 
-    const hour = date.getHours();
+    const hour = date.getHours()-5; //Fix timezone
     const minutes = date.getMinutes();
     const seconds = date.getSeconds();
 
