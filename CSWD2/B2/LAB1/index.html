@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Sprint B2 Lab 1</title>
+        <link rel="stylesheet" href="styles.css">
+        <script src="script.js" defer></script>
+    </head>
+    <body>
+        <div class="timer">
+            <div class="timer_controls">
+                <button class="timer_button" data-time="300">5m</button>
+                <button class="timer_button" data-time="7200">5d</button>
+                <button class="timer_button" data-time="157784760">5y</button>
+                <button class="timer_button" data-time="1577847600">50y</button>
+                <button class="timer_button" data-time="3155695200">100y</button>
+                <form name="customForm" id="custom">
+                    <input type="text" name="minutes" placeholder="Minutes">
+                </form>
+            </div>
+            <div class="display">
+                <h1 class="display_time_left"></h1>
+                <p class="display_end_time"></p>
+            </div>
+        </div>
+
+        <footer>
+            Click on the buttons to bring the time closer.
+        </footer>
+    </body>
+</html>
