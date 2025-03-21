@@ -8,7 +8,7 @@ navigator.geolocation.watchPosition((data) => {
         arrow.style.transform = `rotate(${degrees}deg)`;
     }
     else {
-        speed.textContent = speed.textContent+" | ROTATION NOT AVAILABLE"
+        speed.textContent = "ROTATION NOT AVAILABLE" + speed.textContent;
     }
 },
 (err) => {
